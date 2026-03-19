@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Easy — Bangladesh's #1 Learning Platform</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Noto+Sans+Bengali:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ══ NAVBAR ══════════════════════════════════════════════════════════════ -->
+    <nav>
+        <a href="#" class="logo">
+            <img src="icons/Hsc.png" alt="">
+            <span>Learn<span class="logo-dot">.</span>Easy</span>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li class="dropdown" id="subjectDrop">
+                <div class="dropdown-btn" id="subjectBtn">
+                    Subjects <span class="chevron" id="subChevron">▾</span>
+                </div>
+                <div class="mega-menu" id="megaMenu">
+
+                    <!-- ── COL 1: Class list (always visible when menu is open) ── -->
+                    <div class="menu-col-class">
+                        <div class="col-header">Select Class</div>
+
+                        <div class="class-item" id="ci-hsc" onmouseenter="hoverClass('hsc', this)">
+                            <div class="class-item-left">
+                                <span class="ci-badge">🎓</span>
+                                <span class="class-item-label">HSC</span>
+                            </div>
+                            <span class="ci-arr">›</span>
+                        </div>
+
+                        <div class="class-item" id="ci-ssc" onmouseenter="hoverClass('ssc', this)">
+                            <div class="class-item-left">
+                                <span class="ci-badge">📘</span>
+                                <span class="class-item-label">SSC</span>
+                            </div>
+                            <span class="ci-arr">›</span>
+                        </div>
+
+                        <div class="class-item" id="ci-others" onmouseenter="hoverClass('others', this)">
+                            <div class="class-item-left">
+                                <span class="ci-badge">📚</span>
+                                <span class="class-item-label">Others</span>
+                            </div>
+                            <span class="ci-arr">›</span>
+                        </div>
+
+                        <div class="menu-footer-hint">Hover a class to explore →</div>
+                    </div>
+
+                    <!-- ── COL 2: Groups (shown when a class is hovered) ── -->
+                    <div class="menu-col-groups" id="colGroups">
+
+                        <!-- HSC groups -->
+                        <div class="groups-set" id="gset-hsc">
+                            <div class="col-header">HSC Groups</div>
+                            <div class="group-item" id="gi-hsc-science" onmouseenter="hoverGroup('hsc','science',this)">
+                                <div class="group-item-left">
+                                    <span class="gi-dot gi-dot--blue"></span>Science
+                                </div>
+                                <span class="gi-arr">›</span>
+                            </div>
+                            <div class="group-item" id="gi-hsc-commerce"
+                                onmouseenter="hoverGroup('hsc','commerce',this)">
+                                <div class="group-item-left">
+                                    <span class="gi-dot gi-dot--amber"></span>Commerce
+                                </div>
+                                <span class="gi-arr">›</span>
+                            </div>
+                            <div class="group-item" id="gi-hsc-humanities"
+                                onmouseenter="hoverGroup('hsc','humanities',this)">
+                                <div class="group-item-left">
+                                    <span class="gi-dot gi-dot--purple"></span>Humanities
+                                </div>
+                                <span class="gi-arr">›</span>
+                            </div>
+                        </div>
+
+                        <!-- SSC groups -->
+                        <div class="groups-set hidden" id="gset-ssc">
+                            <div class="col-header">SSC Groups</div>
+                            <div class="group-item" id="gi-ssc-science" onmouseenter="hoverGroup('ssc','science',this)">
+                                <div class="group-item-left">
+                                    <span class="gi-dot gi-dot--blue"></span>Science
+                                </div>
+                                <span class="gi-arr">›</span>
+                            </div>
+                            <div class="group-item" id="gi-ssc-commerce"
+                                onmouseenter="hoverGroup('ssc','commerce',this)">
+                                <div class="group-item-left">
+                                    <span class="gi-dot gi-dot--amber"></span>Commerce
+                                </div>
+                                <span class="gi-arr">›</span>
+                            </div>
+                            <div class="group-item" id="gi-ssc-humanities"
+                                onmouseenter="hoverGroup('ssc','humanities',this)">
+                                <div class="group-item-left">
+                                    <span class="gi-dot gi-dot--purple"></span>Humanities
+                                </div>
+                                <span class="gi-arr">›</span>
+                            </div>
+                        </div>
+
+                        <!-- Others groups -->
+                        <div class="groups-set hidden" id="gset-others">
+                            <div class="col-header">Category</div>
+                            <div class="group-item" id="gi-others-spoken"
+                                onmouseenter="hoverGroup('others','spoken',this)">
+                                <div class="group-item-left">
+                                    <span class="gi-dot gi-dot--green"></span>Spoken English
+                                </div>
+                                <span class="gi-arr">›</span>
+                            </div>
+                            <div class="group-item" id="gi-others-competitive"
+                                onmouseenter="hoverGroup('others','competitive',this)">
+                                <div class="group-item-left">
+                                    <span class="gi-dot gi-dot--red"></span>Competitive Exam
+                                </div>
+                                <span class="gi-arr">›</span>
+                            </div>
+                            <div class="group-item" id="gi-others-skills"
+                                onmouseenter="hoverGroup('others','skills',this)">
+                                <div class="group-item-left">
+                                    <span class="gi-dot gi-dot--amber"></span>Life Skills
+                                </div>
+                                <span class="gi-arr">›</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- ── COL 3: Subjects (shown when a group is hovered) ── -->
+                    <div class="menu-col-subjects" id="colSubjects">
+
+                        <div id="subs-hsc-science" class="subjects-set">
+                            <div class="col-header">Science Subjects</div>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>Physics</a>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>Chemistry</a>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>Biology</a>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>Higher Math</a>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>Bangla</a>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>English</a>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>ICT</a>
+                        </div>
+                        <div id="subs-hsc-commerce" class="subjects-set hidden">
+                            <div class="col-header">Commerce Subjects</div>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>Accounting</a>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>Business Studies</a>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>Finance</a>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>Economics</a>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>Bangla</a>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>English</a>
+                        </div>
+                        <div id="subs-hsc-humanities" class="subjects-set hidden">
+                            <div class="col-header">Humanities Subjects</div>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>History</a>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>Civics</a>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>Geography</a>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>Islamic Studies</a>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>Bangla</a>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>English</a>
+                        </div>
+                        <div id="subs-ssc-science" class="subjects-set hidden">
+                            <div class="col-header">Science Subjects</div>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>Mathematics</a>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>Science</a>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>Chemistry</a>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>Biology</a>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>Physics</a>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>Bangla</a>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>English</a>
+                        </div>
+                        <div id="subs-ssc-commerce" class="subjects-set hidden">
+                            <div class="col-header">Commerce Subjects</div>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>Accounting</a>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>Business</a>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>Economics</a>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>Bangla</a>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>English</a>
+                        </div>
+                        <div id="subs-ssc-humanities" class="subjects-set hidden">
+                            <div class="col-header">Humanities Subjects</div>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>History</a>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>Geography</a>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>Civics</a>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>Bangla</a>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>English</a>
+                        </div>
+                        <div id="subs-others-spoken" class="subjects-set hidden">
+                            <div class="col-header">Spoken English</div>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>Basic English</a>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>IELTS Prep</a>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>Business English</a>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>Pronunciation</a>
+                        </div>
+                        <div id="subs-others-competitive" class="subjects-set hidden">
+                            <div class="col-header">Competitive Exams</div>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>BCS Preparation</a>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>Bank Job Prep</a>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>University Admission</a>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>General Knowledge</a>
+                        </div>
+                        <div id="subs-others-skills" class="subjects-set hidden">
+                            <div class="col-header">Life Skills</div>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>Time Management</a>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>Public Speaking</a>
+                            <a href="#" class="subject-item"><span class="s-dot"></span>Study Techniques</a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </li>
+            <li><a href="#">Programming</a></li>
+            <li><a href="#">Teachers</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+
+        <div class="nav-right">
+            <div class="search-wrap">
+                <input type="text" placeholder="Search courses...">
+                <span class="search-icon">🔍</span>
+            </div>
+            <a href="#" class="btn-login">Login / Sign Up</a>
+        </div>
+    </nav>
+
+    <!-- ══ HERO ════════════════════════════════════════════════════════════════ -->
+    <div class="hero-wrap">
+        <div class="hero-inner">
+            <div class="hero-orb3"></div>
+            <div class="hero-text">
+                <div class="hero-badge"><span class="hero-badge-dot"></span>Bangladesh's #1 Learning Platform</div>
+                <h1 class="bn">"সহজে শিখুন,<br><span class="highlight">স্বপ্ন পূরণ করুন</span> —<br>Learn Easy এর সাথে!"
+                </h1>
+                <p>A modern, clean and highly intuitive educational platform tailored specifically for Bangladeshi
+                    students.</p>
+                <div class="hero-btns">
+                    <button class="btn-primary bn">শিখতে শুরু করুন</button>
+                    <button class="btn-outline bn">শিক্ষক হিসেবে যোগ দিন</button>
+                </div>
+                <div class="hero-trust">
+                    <div class="hero-avatars">
+                        <span class="ha ha--blue">র</span>
+                        <span class="ha ha--green">আ</span>
+                        <span class="ha ha--amber">স</span>
+                        <span class="ha ha--red">ম</span>
+                    </div>
+                    <div class="trust-text"><strong>50,000+</strong> শিক্ষার্থী<br>আমাদের সাথে শিখছেন</div>
+                </div>
+            </div>
+            <div class="hero-img">
+                <div class="hero-img-wrap">
+                    <img src="images/Group of people.jpg" alt="Students studying together">
+                    <div class="hero-float-badge">
+                        <span class="hfb-icon">🎯</span>
+                        <div class="hfb-text">
+                            <strong>98% Success Rate</strong>
+                            <span>Among our students</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══ STATS ════════════════════════════════════════════════════════════════ -->
+    <div class="stats-banner">
+        <div class="stat-item">
+            <h3>50<span class="stat-num-accent">K</span>+</h3>
+            <p>Active Students</p>
+        </div>
+        <div class="stat-item">
+            <h3>200<span class="stat-num-accent">+</span></h3>
+            <p>Expert Teachers</p>
+        </div>
+        <div class="stat-item">
+            <h3>500<span class="stat-num-accent">+</span></h3>
+            <p>Courses Available</p>
+        </div>
+        <div class="stat-item">
+            <h3>98<span class="stat-num-accent">%</span></h3>
+            <p>Student Satisfaction</p>
+        </div>
+    </div>
+
+    <!-- ══ CATEGORIES ═══════════════════════════════════════════════════════════ -->
+    <section class="sec">
+        <div class="sec-label">📚 Browse Categories</div>
+        <h2 class="sec-title bn">"আপনার পছন্দের বিষয় বা ক্লাস নির্বাচন করুন"</h2>
+        <p class="sec-sub">Choose from HSC, SSC, and other categories with full subject coverage across all groups.</p>
+        <div class="cat-row">
+            <div class="cat-card">
+                <div class="cat-icon-wrap"><img src="icons/Hsc.png" alt="HSC"></div>
+                <h3>HSC</h3>
+                <p>Higher Secondary Certificate courses covering Science, Commerce and Humanities groups with all
+                    subjects.</p>
+                <a href="#" class="cat-link">Browse courses →</a>
+            </div>
+            <div class="cat-card">
+                <div class="cat-icon-wrap"><img src="icons/SSC.svg" alt="SSC"></div>
+                <h3>SSC</h3>
+                <p>Secondary School Certificate courses tailored for class 9–10 students across all groups and subjects.
+                </p>
+                <a href="#" class="cat-link">Browse courses →</a>
+            </div>
+            <div class="cat-card">
+                <div class="cat-icon-wrap"><img src="icons/Others.png" alt="Others"></div>
+                <h3>Others</h3>
+                <p>Skill-building courses including spoken English, general knowledge, and competitive exam preparation.
+                </p>
+                <a href="#" class="cat-link">Browse courses →</a>
+            </div>
+        </div>
+        <div class="slider-nav">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </section>
+
+    <!-- ══ PROGRAMMING COURSES ══════════════════════════════════════════════════ -->
+    <section class="sec bg-soft">
+        <div class="sec-label">💻 Programming</div>
+        <h2 class="sec-title bn">"প্রোগ্রামিংয়ের দুনিয়ায় প্রবেশ করুন"</h2>
+        <p class="sec-sub">Step-by-step programming courses for all skill levels — from total beginners to advanced
+            developers.</p>
+        <div class="course-grid">
+            <div class="course-card">
+                <span class="tag beginner">Beginner</span>
+                <div class="course-icon-wrap"><img src="icons/Web_Development.gif" alt="Web Dev"></div>
+                <h4>Web Development</h4>
+                <p>Learn HTML, CSS, and JavaScript to build beautiful, responsive websites from scratch.</p>
+                <button class="btn-block">Learn More</button>
+            </div>
+            <div class="course-card">
+                <span class="tag intermediate">Intermediate</span>
+                <div class="course-icon-wrap"><img src="icons/App_Development.gif" alt="App Dev"></div>
+                <h4>App Development</h4>
+                <p>Build cross-platform mobile applications using modern frameworks and tools.</p>
+                <button class="btn-block">Learn More</button>
+            </div>
+            <div class="course-card">
+                <span class="tag intermediate">Intermediate</span>
+                <div class="course-icon-wrap"><img src="icons/DataScience.png" alt="Data Science"></div>
+                <h4>Data Science</h4>
+                <p>Explore data analysis, machine learning, and visualization using Python and libraries.</p>
+                <button class="btn-block">Learn More</button>
+            </div>
+            <div class="course-card">
+                <span class="tag advanced">Advanced</span>
+                <div class="course-icon-wrap"><img src="icons/Game_Development.gif" alt="Game Dev"></div>
+                <h4>Game Development</h4>
+                <p>Create engaging games using C++ and modern game engines for desktop and mobile.</p>
+                <button class="btn-block">Learn More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ LANGUAGES ════════════════════════════════════════════════════════════ -->
+    <section class="sec">
+        <div class="sec-label">🚀 Languages</div>
+        <h2 class="sec-title bn">"ধাপে ধাপে প্রোগ্রামিং শিখুন"</h2>
+        <p class="sec-sub">Learn the world's most popular programming languages at your own pace.</p>
+        <div class="lang-grid">
+            <div class="lang-card">
+                <div class="lang-icon-wrap"><img src="icons/python.png" alt="Python"></div>
+                <span class="lname">Python</span>
+                <p>Beginner friendly &amp; powerful</p>
+            </div>
+            <div class="lang-card">
+                <div class="lang-icon-wrap"><img src="icons/js.png" alt="JavaScript"></div>
+                <span class="lname">JavaScript</span>
+                <p>The language of the web</p>
+            </div>
+            <div class="lang-card">
+                <div class="lang-icon-wrap"><img src="icons/java.png" alt="Java"></div>
+                <span class="lname">Java</span>
+                <p>Enterprise &amp; Android apps</p>
+            </div>
+            <div class="lang-card">
+                <div class="lang-icon-wrap"><img src="icons/c-.png" alt="C++"></div>
+                <span class="lname">C++</span>
+                <p>Performance &amp; game dev</p>
+            </div>
+            <div class="lang-card">
+                <div class="lang-icon-wrap"><img src="icons/php.png" alt="PHP"></div>
+                <span class="lname">PHP</span>
+                <p>Backend web development</p>
+            </div>
+            <div class="lang-card">
+                <div class="lang-icon-wrap"><img src="icons/swift.png" alt="Swift"></div>
+                <span class="lname">Swift</span>
+                <p>iOS &amp; macOS development</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ TESTIMONIALS ══════════════════════════════════════════════════════════ -->
+    <section class="sec bg-soft">
+        <div class="sec-label">💬 Reviews</div>
+        <h2 class="sec-title bn">"শিক্ষার্থীরা কী বলছেন?"</h2>
+        <p class="sec-sub">Thousands of students have transformed their studies and careers with Learn Easy.</p>
+        <div class="testimonials-grid">
+            <div class="testi-card">
+                <div class="stars">★★★★★</div>
+                <p>"Learn Easy helped me pass my HSC with an A+. The explanations are so clear and the teachers are
+                    simply amazing!"</p>
+                <div class="testi-author">
+                    <div class="testi-avatar ta--blue">র</div>
+                    <div><strong>রাহেলা বেগম</strong><span>HSC Student, Dhaka</span></div>
+                </div>
+            </div>
+            <div class="testi-card">
+                <div class="stars">★★★★★</div>
+                <p>"The programming courses are world-class. I landed my first developer job after completing the Web
+                    Dev course!"</p>
+                <div class="testi-author">
+                    <div class="testi-avatar ta--green">আ</div>
+                    <div><strong>আরিফুল ইসলাম</strong><span>Web Developer, Chittagong</span></div>
+                </div>
+            </div>
+            <div class="testi-card">
+                <div class="stars">★★★★★</div>
+                <p>"As a parent, I'm so relieved. My son's grades improved dramatically after just 2 months on Learn
+                    Easy."</p>
+                <div class="testi-author">
+                    <div class="testi-avatar ta--amber">ফ</div>
+                    <div><strong>ফারিদা খানম</strong><span>Parent, Sylhet</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ CTA ══════════════════════════════════════════════════════════════════ -->
+    <div class="cta-banner">
+        <div class="cta-deco"></div>
+        <div class="cta-text">
+            <h2 class="bn">আজই শুরু করুন —<br>বিনামূল্যে!</h2>
+            <p>Join over 50,000 Bangladeshi students already learning<br>on Learn Easy. Your future starts with a single
+                click.</p>
+        </div>
+        <div class="cta-actions">
+            <button class="btn-white bn">বিনামূল্যে যোগ দিন →</button>
+            <span class="cta-hint">No credit card required</span>
+        </div>
+    </div>
+
+    <!-- ══ FOOTER ════════════════════════════════════════════════════════════════ -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="footer-logo">
+                    <img src="icons/Hsc.png" alt=""> Learn<span class="footer-logo-dot">.</span>Easy
+                </a>
+                <p>Bangladesh's leading online educational platform for HSC, SSC students and aspiring programmers.</p>
+            </div>
+            <div class="footer-col">
+                <h5>Subjects</h5>
+                <a href="#">HSC Courses</a>
+                <a href="#">SSC Courses</a>
+                <a href="#">Science</a>
+                <a href="#">Commerce</a>
+                <a href="#">Humanities</a>
+            </div>
+            <div class="footer-col">
+                <h5>Programming</h5>
+                <a href="#">Web Dev</a>
+                <a href="#">App Dev</a>
+                <a href="#">Data Science</a>
+                <a href="#">Game Dev</a>
+                <a href="#">All Courses</a>
+            </div>
+            <div class="footer-col">
+                <h5>Company</h5>
+                <a href="#">About Us</a>
+                <a href="#">Teachers</a>
+                <a href="#">Careers</a>
+                <a href="#">Contact</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2025 Learn Easy. All rights reserved.</span>
+            <span>Made with ❤️ for Bangladeshi students</span>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>
